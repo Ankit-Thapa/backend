@@ -1,0 +1,13 @@
+//package com.demoproject.shopping.dto;
+//
+//public class UserDto {
+//	Long id;
+//	String firstName;
+//	String lastName;
+//	int mmobileNumber;
+//	String email;
+//	String password;
+//	int numberOfLogin;
+//	String userType;
+//	Byte[] profilePicture;
+//}

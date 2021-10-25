@@ -1,0 +1,5 @@
+package com.demoproject.shopping.entity;
+
+public class ProductCategory {
+
+}

@@ -1,0 +1,13 @@
+package com.demoproject.shopping.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.demoproject.shopping.entity.Cart;
+import com.demoproject.shopping.entity.CartProductsMapping;
+
+public interface CartProductMappingRepository extends JpaRepository<CartProductsMapping,Long>{
+
+	 @Query(value="SELECT * FROM CartProductsMapping where cart_id =?1",nativeQuery=true)
+	 CartProductsMapping findByUserId(Long id);
+}

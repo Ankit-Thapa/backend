@@ -1,0 +1,30 @@
+package com.demoproject.shopping.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="ShoppingProducts")
+public class ShoppingProducts {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="id")
+	private int id;
+	@OneToOne
+    @JoinColumn(name = "shopping_id", referencedColumnName = "id", insertable = false, updatable = false)
+	private Shopping shopping;
+	@OneToOne
+    @JoinColumn(name = "product_id", referencedColumnName = "id", insertable = false, updatable = false)
+	private Product product;
+	@Column(name="quantity")
+	private int quantity;
+	@Column(name="total_price")
+	private int totalPrice;
+	
+}

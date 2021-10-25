@@ -1,0 +1,29 @@
+package com.demoproject.shopping.entity;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Shopping")
+public class Shopping {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="id")
+	private Long id;
+//	@OneToOne
+//    @JoinColumn(name = "user_id", referencedColumnName = "id", insertable = false, updatable = false)
+//	private Users users;
+	@OneToOne
+    @JoinColumn(name = "cart_id", referencedColumnName = "id", insertable = false, updatable = false)
+	private Cart cart;
+	@Column(name="date")
+	private Date date;
+}

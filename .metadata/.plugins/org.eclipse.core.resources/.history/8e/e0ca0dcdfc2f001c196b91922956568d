@@ -1,0 +1,40 @@
+package com.demoproject.shopping.entity;
+
+import java.util.Date;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Product")
+public class Product {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="id")
+	private int id;
+	@OneToOne
+    @JoinColumn(name = "product_category_id", referencedColumnName = "id", insertable = false, updatable = false)
+	private ProductCategory ProductCategory;
+//	@OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "product_category_id", referencedColumnName = "id")
+//    private ProductCategory product_category_id;
+	@Column(name="name")
+	String name;
+	@Column(name="price")
+	private int price;
+	@Column(name="date_created")
+	private Date dateCreated;
+	@Column(name="date_modified")
+	Date dateModified;
+	@Column(name="image")
+	private byte[] image;
+//	@OneToOne(mappedBy = "Product")
+//    private ProductDetails productDetails;
+}

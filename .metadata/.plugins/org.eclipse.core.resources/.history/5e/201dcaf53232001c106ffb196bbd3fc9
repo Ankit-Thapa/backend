@@ -1,0 +1,58 @@
+package com.demoproject.shopping.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.demoproject.shopping.entity.Product;
+import com.demoproject.shopping.entity.ProductCategory;
+import com.demoproject.shopping.service.ProductCategoriesService;
+
+@CrossOrigin(origins = "http://localhost:4200")
+@RestController
+public class ProductCategoryController {
+
+	@Autowired
+	private ProductCategoriesService productCategoriesService;
+	
+	@PostMapping("/product-category/save")  
+	private void saveUser(@RequestBody ProductCategory productCategory)   
+	{  
+		String msg="Successfully Uploaded " +productCategory;
+		HttpHeaders header=new HttpHeaders();
+		header.add("post status", "successful post");
+		productCategoriesService.saveProductCategory(productCategory);   
+//		return new ResponseEntity<String>(msg,header,HttpStatus.OK);
+	}  
+	
+	@PutMapping("/product-category/{id}")  
+	private String update(@PathVariable("id") String id,@RequestBody ProductCategory productCategory)   
+	{  
+		productCategoriesService.update(id,productCategory);  
+		return "successfully updated"+productCategory;  
+	} 
+	
+	@GetMapping("/product-category/{id}")  
+	private ResponseEntity<ProductCategory> getProductCategoryById(@PathVariable("id") String id)   
+	{  
+		ProductCategory body=productCategoriesService.getProductCategoryById(id);  
+		HttpHeaders header = new HttpHeaders();
+		header.add("key", "this is header");
+		return ResponseEntity.status(HttpStatus.OK).headers(header).body(body);
+	}
+	@GetMapping("/product-category")
+	private List<ProductCategory> getAllProductcategory(){
+		return productCategoriesService.getAllProductCategory();
+	}
+}

@@ -1,0 +1,8 @@
+package com.demoproject.shopping.service;
+
+import com.demoproject.shopping.entity.Product;
+import com.demoproject.shopping.entity.ProductCategory;
+
+public interface ProductCategoriesService {
+	public void saveProductCategory(ProductCategory productCategory) ;
+}

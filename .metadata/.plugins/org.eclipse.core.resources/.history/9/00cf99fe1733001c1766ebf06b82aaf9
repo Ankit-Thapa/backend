@@ -1,0 +1,30 @@
+package com.demoproject.shopping.serviceimpl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.demoproject.shopping.entity.Cart;
+import com.demoproject.shopping.entity.Product;
+import com.demoproject.shopping.repository.CartRepository;
+import com.demoproject.shopping.service.CartService;
+
+@Service
+public class CartServiceImpl implements CartService{
+	
+	@Autowired
+	private CartRepository CartRepository;
+
+	public List<Cart> getAllCart(){
+		List<Cart> cart = new ArrayList<Cart>();  
+		CartRepository.findAll().forEach(cartData -> cart.add(cartData));  
+		System.out.println(cart);
+		return cart;
+	}
+	
+	public void saveCart(Cart cart) {
+		CartRepository.save(cart); 
+	}
+}

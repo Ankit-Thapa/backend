@@ -1,0 +1,11 @@
+package com.demoproject.shopping.service;
+
+import java.util.List;
+
+import com.demoproject.shopping.entity.Cart;
+
+public interface CartMappingService {
+
+	public List<Cart> getAllCartMapping();
+
+}

@@ -1,0 +1,30 @@
+package com.demoproject.shopping.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+@Entity
+@Table(name="user-table")
+public class Users {
+
+		@Id
+		@GeneratedValue(strategy=GenerationType.AUTO)
+		@Column(name="id")
+		private int id;
+		@Column(name="first_name")
+		private String firstName;
+		@Column(name="last_name")
+		private String lastName;
+		@Column(name="mobile_number")
+		private int mobileNumber;
+		@Column(name="email_address")
+		private String email;
+		@Column(name="user_type")
+		private String uesrType;
+		@Column(name="profile_pic")
+		private Byte[] profilePic;
+	
+}

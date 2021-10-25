@@ -1,0 +1,12 @@
+package com.demoproject.shopping.serviceimpl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.demoproject.shopping.repository.ProductCategoryRepository;
+import com.demoproject.shopping.repository.ProductRepository;
+import com.demoproject.shopping.service.ProductCategoriesService;
+
+public class ProductCategoryServiceImpl implements ProductCategoriesService {
+	@Autowired
+	private ProductCategoryRepository ProductCategoryRepository;
+}

@@ -1,0 +1,14 @@
+package com.demoproject.shopping.service;
+
+import java.util.Optional;
+
+import com.demoproject.shopping.entity.Product;
+import com.demoproject.shopping.entity.ProductCategory;
+
+public interface ProductCategoriesService {
+	public void saveProductCategory(ProductCategory productCategory) ;
+
+	public void update(String id, ProductCategory productCategory);
+
+	public Optional<ProductCategory> getProductCategoryById(int id);
+}

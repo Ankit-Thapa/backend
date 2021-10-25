@@ -1,0 +1,31 @@
+package com.demoproject.shopping.serviceimpl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.demoproject.shopping.entity.User;
+import com.demoproject.shopping.repository.UserRepository;
+import com.demoproject.shopping.service.LoginService;
+
+@Service
+public class LoginServiceImpl implements LoginService{
+	
+	@Autowired
+	private UserRepository UserRepository;
+	
+	@Override
+	public String loginAuth(String email,String password) {
+		User detail=UserRepository.findByEmail(email);
+		String authemail=detail.getEmail();
+		String authPassword=detail.getPassword();
+		System.out.println("hello"+authemail+authPassword);
+		if(authemail!=email) {
+			System.out.println("hello"+authemail+" "+email);
+			return "Authenticate";
+		}
+		return "invalid";
+	}
+
+}

@@ -1,0 +1,21 @@
+package com.demoproject.shopping.serviceimpl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.demoproject.shopping.entity.Product;
+import com.demoproject.shopping.entity.User;
+import com.demoproject.shopping.repository.ProductRepository;
+import com.demoproject.shopping.repository.UserRepository;
+import com.demoproject.shopping.service.ProductService;
+
+public class ProductServiceImpl implements ProductService{
+
+	
+	@Autowired
+	private ProductRepository ProductRepository;
+
+	@Override
+	public void saveUser(Product product) {
+		ProductRepository.save(product);  
+	}
+}

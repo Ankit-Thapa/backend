@@ -1,0 +1,10 @@
+ackage com.demoproject.shopping.service;
+
+public class UserService {
+
+	@GetMapping("/peoples")
+		private List<Person> getAllPerson(){
+			return peopleManagementService.getAllPeople();
+		}
+
+}

@@ -1,0 +1,7 @@
+package com.demoproject.shopping.service;
+
+import com.demoproject.shopping.entity.Product;
+
+public interface ProductService {
+	public void saveUser(Product product) ;
+}

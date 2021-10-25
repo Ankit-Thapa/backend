@@ -1,0 +1,11 @@
+package com.demoproject.shopping.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.demoproject.shopping.entity.Cart;
+import com.demoproject.shopping.entity.Product;
+
+public interface CartRepository extends JpaRepository<Cart,Long>{
+
+	Cart findById(Long id);
+}

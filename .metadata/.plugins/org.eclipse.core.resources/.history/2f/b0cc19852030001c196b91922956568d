@@ -1,0 +1,15 @@
+package com.demoproject.shopping.dto;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+public class UserDTO {
+
+	private Long id;
+	private String firstName;
+	private String lastName;
+	private int mmobileNumber;
+	private String email;
+	private int numberOfLogin;
+}

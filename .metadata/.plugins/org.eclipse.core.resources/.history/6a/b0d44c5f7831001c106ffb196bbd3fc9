@@ -1,0 +1,11 @@
+package com.demoproject.shopping.service;
+
+import java.util.List;
+
+import org.json.simple.JSONObject;
+
+import com.demoproject.shopping.entity.User;
+
+public interface LoginService {
+	public JSONObject loginAuth(String email,String password) ;
+}

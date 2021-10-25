@@ -1,0 +1,47 @@
+package com.demoproject.shopping.serviceimpl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.demoproject.shopping.entity.Product;
+import com.demoproject.shopping.entity.User;
+import com.demoproject.shopping.repository.ProductRepository;
+import com.demoproject.shopping.repository.UserRepository;
+import com.demoproject.shopping.service.ProductService;
+
+@Service
+public class ProductServiceImpl implements ProductService{
+
+	
+	@Autowired
+	private ProductRepository ProductRepository;
+
+	@Override
+	public void saveProduct(Product product) {
+		Product data=ProductRepository.save(product);  
+		System.out.println(data.)
+	}
+	
+	public List<Product> getAllProducts(){
+		List<Product> users = new ArrayList<Product>();  
+		ProductRepository.findAll().forEach(userData -> users.add(userData));  
+		System.out.println(users);
+		return users;
+	}
+	
+	public void update(int id, Product product) {
+		Product data=ProductRepository.findById(id).get(); 
+		if(id==data.getId()) {
+			
+			data.setName(product.getName());
+			data.setPrice(product.getPrice());
+			data.setProductCategoryId(product.getProductCategoryId());
+			data.setDetail(product.getDetail());
+			data.setFeature(product.getFeature());
+		}
+		ProductRepository.save(data);
+	}
+}

@@ -1,0 +1,10 @@
+package com.demoproject.shopping.serviceimpl;
+
+import org.springframework.stereotype.Service;
+
+import com.demoproject.shopping.service.ImageService;
+
+@Service
+public class ImageImpl implements ImageService{
+	
+}

@@ -1,0 +1,32 @@
+package com.demoproject.shopping.serviceimpl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.demoproject.shopping.entity.Product;
+import com.demoproject.shopping.entity.ProductCategory;
+import com.demoproject.shopping.repository.ProductCategoryRepository;
+import com.demoproject.shopping.repository.ProductRepository;
+import com.demoproject.shopping.service.ProductCategoriesService;
+
+
+@Service
+public class ProductCategoryServiceImpl implements ProductCategoriesService {
+	@Autowired
+	private ProductCategoryRepository ProductCategoryRepository;
+	
+	@Override
+	public void saveProductCategory(ProductCategory productCategory) {
+		ProductCategoryRepository.save(productCategory);  
+	}
+	@Override
+	public void update(String id, ProductCategory productCategory) {
+		ProductCategory data=ProductCategoryRepository.findById(id);
+		if(id==data.getId()) {
+			
+			data.setName(productCategory.getName());
+			data.setId(productCategory.getId());
+		}
+		ProductCategoryRepository.save(data);
+	}
+}

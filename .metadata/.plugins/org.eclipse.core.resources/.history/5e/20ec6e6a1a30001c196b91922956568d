@@ -1,0 +1,37 @@
+package com.demoproject.shopping.serviceimpl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.demoproject.shopping.repository.UserRepository;
+import com.demoproject.shopping.mapper.UserModelMapper;
+import com.demoproject.shopping.service.UserService;
+import com.demoproject.shopping.entity.User;
+
+@Service
+public class UserServiceImpl implements UserService{
+	@Autowired
+	private UserRepository UserRepository;
+	@Autowired
+	private UserModelMapper UserModelMapper;
+	
+	@Override
+	public List<UserDTO> getAllUsers() {
+		List<User> users = new ArrayList<User>();  
+		UserRepository.findAll().forEach(userData -> users.add(userData));  
+		System.out.println(users);
+		return users;
+		return UserRepository.findAll().stream().map(this::)
+	}
+
+	@Override
+	public void saveUser(User user) {
+		UserRepository.save(user);  
+		
+	}
+
+
+}
